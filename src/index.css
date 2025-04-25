@@ -80,22 +80,27 @@
 
 @layer components {
   .glass-panel {
-    @apply backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl shadow-lg;
+    @apply backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl shadow-lg transition-all duration-300;
   }
   
   .glass-input {
-    @apply backdrop-blur-xl bg-white/5 border border-white/10 rounded-xl focus:ring-2 focus:ring-neon-purple focus:border-neon-purple;
+    @apply backdrop-blur-xl bg-white/5 border border-white/10 rounded-xl focus:ring-2 focus:ring-neon-purple focus:border-neon-purple transition-all duration-300;
   }
   
   .neon-border {
-    @apply border border-neon-purple shadow-neon-purple;
+    @apply border border-neon-purple shadow-neon-purple transition-all duration-300;
   }
   
   .neon-button {
-    @apply bg-gradient-to-r from-neon-purple to-neon-pink text-white font-semibold py-2 px-6 rounded-full shadow-lg hover:opacity-90 transition-all duration-300;
+    @apply bg-gradient-to-r from-neon-purple to-neon-pink text-white font-semibold py-2 px-6 rounded-full shadow-lg hover:opacity-90 transition-all duration-300 hover:shadow-neon-purple/40 hover:scale-105;
   }
 
   .gradient-text {
     @apply bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent;
+  }
+
+  .animate-gradient {
+    @apply animate-[gradient_8s_ease_infinite];
+    background-size: 200% 200%;
   }
 }
