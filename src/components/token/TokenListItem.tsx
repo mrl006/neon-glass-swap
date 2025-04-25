@@ -10,11 +10,11 @@ interface TokenListItemProps {
 const TokenListItem = ({ token, onSelect }: TokenListItemProps) => {
   return (
     <div
-      className="flex items-center justify-between p-2 hover:bg-glass-light rounded-lg cursor-pointer transition-colors"
+      className="flex items-center justify-between p-3 hover:bg-glass-light rounded-lg cursor-pointer transition-colors"
       onClick={() => onSelect(token)}
     >
-      <div className="flex items-center gap-2">
-        <div className="w-8 h-8 rounded-full bg-white p-1 flex items-center justify-center">
+      <div className="flex items-center gap-3">
+        <div className="w-9 h-9 rounded-full bg-white p-1 flex items-center justify-center shadow-sm">
           <img 
             src={token.logo} 
             alt={token.symbol}
@@ -26,12 +26,12 @@ const TokenListItem = ({ token, onSelect }: TokenListItemProps) => {
           />
         </div>
         <div>
-          <div className="font-medium">{token.symbol}</div>
+          <div className="font-medium text-white">{token.symbol}</div>
           <div className="text-xs text-gray-400">{token.name}</div>
         </div>
       </div>
-      <div className="text-xs text-gray-400">
-        {token.balance || '0.00'}
+      <div className="text-sm text-gray-300 font-medium">
+        {token.balance ? token.balance : '0.00'}
       </div>
     </div>
   );
