@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { 
   Popover,
@@ -12,7 +11,7 @@ import { TokenModel, tokens } from '../models/TokenModel';
 interface TokenSelectorProps {
   selectedToken: TokenModel | null;
   onSelectToken: (token: TokenModel) => void;
-  otherSelectedToken?: TokenModel | null; // To prevent selecting the same token
+  otherSelectedToken?: TokenModel | null;
 }
 
 const TokenSelector: React.FC<TokenSelectorProps> = ({ 
