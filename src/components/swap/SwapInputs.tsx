@@ -37,7 +37,7 @@ const SwapInputs: React.FC<SwapInputsProps> = ({
               placeholder="0.0"
               value={state.amount}
               onChange={onAmountChange}
-              className="glass-input text-lg h-14 bg-white/5 border-white/10 focus:border-neon-purple/50 focus:ring-neon-purple/20"
+              className="glass-input text-lg h-14 bg-gradient-to-br from-purple-900/10 to-pink-900/10 border-white/10 focus:border-neon-purple/50 focus:ring-neon-purple/20"
               disabled={disabled}
             />
           </div>
@@ -57,10 +57,10 @@ const SwapInputs: React.FC<SwapInputsProps> = ({
           size="icon"
           variant="outline"
           onClick={onSwitchTokens}
-          className="rounded-full w-10 h-10 bg-white/5 border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300"
+          className="rounded-full w-10 h-10 bg-gradient-to-br from-purple-500/10 to-pink-500/10 border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300 animate-pulse"
           disabled={disabled}
         >
-          <ArrowDown className="h-5 w-5" />
+          <ArrowDown className="h-5 w-5 text-white" />
         </Button>
       </div>
 
@@ -73,7 +73,7 @@ const SwapInputs: React.FC<SwapInputsProps> = ({
               type="text"
               placeholder="0.0"
               value={isLoadingQuote ? "Loading..." : state.quote?.outputAmount.toFixed(6) || "0.0"}
-              className="glass-input text-lg h-14 bg-white/5 border-white/10"
+              className="glass-input text-lg h-14 bg-gradient-to-br from-purple-900/10 to-pink-900/10 border-white/10"
               disabled
             />
             {isLoadingQuote && (
