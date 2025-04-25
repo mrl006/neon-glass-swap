@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -81,23 +80,22 @@
 
 @layer components {
   .glass-panel {
-    @apply backdrop-blur-md bg-glass-dark bg-opacity-30 border border-glass-border rounded-2xl shadow-lg;
+    @apply backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl shadow-lg;
   }
   
   .glass-input {
-    @apply backdrop-blur-md bg-glass-dark bg-opacity-20 border border-brand-purple/20 rounded-xl focus:ring-2 focus:ring-brand-purple focus:border-brand-purple-light;
+    @apply backdrop-blur-xl bg-white/5 border border-white/10 rounded-xl focus:ring-2 focus:ring-neon-purple focus:border-neon-purple;
   }
   
   .neon-border {
-    @apply border border-brand-purple shadow-brand-purple;
+    @apply border border-neon-purple shadow-neon-purple;
   }
   
   .neon-button {
-    @apply bg-gradient-brand text-white font-semibold py-2 px-6 rounded-full shadow-lg hover:opacity-90 transition-all duration-300;
+    @apply bg-gradient-to-r from-neon-purple to-neon-pink text-white font-semibold py-2 px-6 rounded-full shadow-lg hover:opacity-90 transition-all duration-300;
   }
 
   .gradient-text {
-    @apply bg-gradient-brand bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent;
   }
 }
-
