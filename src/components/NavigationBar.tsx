@@ -40,7 +40,7 @@ const NavigationBar = () => {
 
         <Button 
           onClick={connectWallet} 
-          className="neon-button"
+          className="bg-gray-800 text-white hover:bg-gray-700"
           disabled={isConnected}
         >
           Connect Wallet
