@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Cog } from 'lucide-react';
 import NavigationBar from '@/components/NavigationBar';
@@ -6,18 +5,14 @@ import GlassBackground from '@/components/GlassBackground';
 import WalletConnect from '@/components/WalletConnect';
 import SwapForm from '@/components/SwapForm';
 import Footer from '@/components/Footer';
-
 const Index = () => {
-  return (
-    <GlassBackground>
+  return <GlassBackground>
       <div className="min-h-screen flex flex-col">
         <NavigationBar />
         
         <main className="flex-1 container mx-auto px-4 py-8">
           <div className="max-w-3xl mx-auto text-center mb-12">
-            <h1 className="text-6xl font-bold mb-4 bg-gradient-to-r from-neon-purple via-white to-neon-blue bg-clip-text text-transparent animate-gradient">
-              Glassless Token Swap
-            </h1>
+            <h1 className="text-6xl font-bold mb-4 bg-gradient-to-r from-neon-purple via-white to-neon-blue bg-clip-text text-transparent animate-gradient"> Gasless Swap</h1>
             <p className="text-xl text-gray-400">
               Experience the Future of DeFi
             </p>
@@ -43,8 +38,6 @@ const Index = () => {
 
         <Footer />
       </div>
-    </GlassBackground>
-  );
+    </GlassBackground>;
 };
-
 export default Index;
