@@ -34,7 +34,7 @@ const SwapForm: React.FC = () => {
   };
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 w-full">
       <SwapInputs
         state={state}
         isLoadingQuote={isLoadingQuote}
@@ -52,7 +52,7 @@ const SwapForm: React.FC = () => {
       />
       
       {state.isApproved !== undefined && (
-        <div className="glass-panel p-4 rounded-2xl bg-gradient-to-r from-purple-500/10 to-pink-500/10 backdrop-blur-sm border border-white/10">
+        <div className="glass-panel p-4 rounded-2xl bg-gradient-to-r from-purple-500/10 to-pink-500/10 backdrop-blur-sm border border-white/10 w-full">
           <p className="text-sm text-center flex items-center justify-center gap-2">
             Status: 
             <span className={`${state.isApproved ? "text-green-400" : "text-red-400"} flex items-center gap-2`}>
@@ -79,7 +79,7 @@ const SwapForm: React.FC = () => {
         </div>
       )}
       
-      <div className="mb-6">
+      <div className="mb-6 w-full">
         <SwapButton
           isConnected={isConnected}
           isEligible={isEligible}
@@ -92,7 +92,7 @@ const SwapForm: React.FC = () => {
       </div>
       
       {state.quote && (
-        <div className="p-6 rounded-2xl bg-gradient-to-br from-purple-500/5 via-black/20 to-pink-500/5 backdrop-blur-sm border border-white/10 animate-fade-in">
+        <div className="p-6 rounded-2xl bg-gradient-to-br from-purple-500/5 via-black/20 to-pink-500/5 backdrop-blur-sm border border-white/10 animate-fade-in w-full">
           <div className="flex flex-col gap-3">
             <div className="flex justify-between text-sm">
               <span className="text-gray-400">Rate</span>
@@ -120,3 +120,4 @@ const SwapForm: React.FC = () => {
 };
 
 export default SwapForm;
+
