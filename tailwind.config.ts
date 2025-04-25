@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,6 +62,19 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				// Custom colors for the glassmorphism UI
+				neon: {
+					purple: '#9b87f5',
+					'purple-light': '#d6bcfa',
+					'purple-vivid': '#8b5cf6',
+					blue: '#1eaedb',
+					'sky-blue': '#33c3f0',
+				},
+				glass: {
+					dark: 'rgba(0, 0, 0, 0.1)',
+					light: 'rgba(255, 255, 255, 0.1)',
+					border: 'rgba(255, 255, 255, 0.05)',
 				}
 			},
 			borderRadius: {
@@ -84,12 +98,30 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'glow-pulse': {
+					'0%, 100%': { 
+						boxShadow: '0 0 5px #9b87f5, 0 0 10px #9b87f5, 0 0 15px #9b87f5' 
+					},
+					'50%': { 
+						boxShadow: '0 0 10px #33c3f0, 0 0 20px #33c3f0, 0 0 30px #33c3f0' 
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
-			}
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'glow-pulse': 'glow-pulse 3s infinite'
+			},
+			boxShadow: {
+				'neon-purple': '0 0 5px #9b87f5, 0 0 10px #9b87f5',
+				'neon-blue': '0 0 5px #33c3f0, 0 0 10px #33c3f0',
+			},
+			backgroundImage: {
+				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+				'gradient-conic': 'conic-gradient(var(--tw-gradient-stops))',
+				'neon-glow': 'linear-gradient(90deg, #9b87f5 0%, #33c3f0 100%)',
+			},
 		}
 	},
 	plugins: [require("tailwindcss-animate")],
