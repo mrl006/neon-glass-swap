@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -33,6 +34,8 @@
     --ring: 271 91% 65%;
 
     --radius: 0.75rem;
+    
+    --neon-green: 142 84% 67%;
   }
 
   .dark {
@@ -102,5 +105,13 @@
   .animate-gradient {
     @apply animate-[gradient_8s_ease_infinite];
     background-size: 200% 200%;
+  }
+  
+  .text-neon-green {
+    @apply text-[hsl(var(--neon-green))];
+  }
+  
+  .bg-neon-green {
+    @apply bg-[hsl(var(--neon-green))];
   }
 }

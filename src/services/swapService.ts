@@ -29,7 +29,7 @@ export const initialSwapState: SwapState = {
   quote: null,
   slippage: 5, // Default 5%
   useV2: true,
-  useGlasslessSwap: false,
+  useGlasslessSwap: true, // Changed to true by default
   isApproved: false
 };
 

@@ -4,6 +4,8 @@ import { Label } from '@/components/ui/label';
 import { Slider } from '@/components/ui/slider';
 import { Checkbox } from '@/components/ui/checkbox';
 import { SwapState } from '@/services/swapService';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import { Zap } from 'lucide-react';
 
 interface SwapSettingsProps {
   state: SwapState;
@@ -56,13 +58,23 @@ const SwapSettings: React.FC<SwapSettingsProps> = ({
             checked={state.useGlasslessSwap}
             onCheckedChange={() => onCheckboxChange('useGlasslessSwap')}
             disabled={disabled}
+            className="border-neon-pink checked:bg-neon-pink"
           />
-          <Label
+          <label
             htmlFor="use-gasless"
-            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+            className="flex items-center gap-2 text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
           >
-            Use Glassless Swap (Gasless)
-          </Label>
+            <span className="text-neon-pink font-semibold">Use Gasless Swap</span>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <span className="inline-flex items-center justify-center bg-neon-pink/20 rounded-full w-5 h-5 text-neon-pink text-xs">?</span>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p className="w-48 text-xs">Swap tokens without paying any gas fees! Powered by Web3D technology.</p>
+              </TooltipContent>
+            </Tooltip>
+            <Zap className="w-4 h-4 text-neon-pink animate-pulse" />
+          </label>
         </div>
       </div>
     </div>
