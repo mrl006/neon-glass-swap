@@ -1,6 +1,5 @@
 
 import React from 'react';
-import { useWallet } from '../services/walletService';
 import { TokenModel } from '../models/TokenModel';
 import { useSwapState } from '../hooks/useSwapState';
 import { useSwapActions } from '../hooks/useSwapActions';
@@ -9,6 +8,7 @@ import SwapSettings from './swap/SwapSettings';
 import SwapButton from './swap/SwapButton';
 import { useToast } from '@/hooks/use-toast';
 import { Copy } from 'lucide-react';
+import { useWalletContext } from '../context/WalletContext';
 import {
   Tooltip,
   TooltipContent,
@@ -19,7 +19,7 @@ import {
 const SwapForm: React.FC = () => {
   const { state, updateState, handleAmountChange, switchTokens, handleSlippageChange, handleCheckboxChange } = useSwapState();
   const { isLoadingQuote, isSwapping, isApproving, handleApprove, handleSwap } = useSwapActions(state, updateState);
-  const { isConnected, isEligible } = useWallet();
+  const { isConnected, isEligible } = useWalletContext();
   const { toast } = useToast();
 
   const handleTokenSelect = (key: 'fromToken' | 'toToken', token: TokenModel) => {
@@ -81,8 +81,6 @@ const SwapForm: React.FC = () => {
       
       <div className="mb-6 w-full">
         <SwapButton
-          isConnected={isConnected}
-          isEligible={isEligible}
           state={state}
           isApproving={isApproving}
           isSwapping={isSwapping}
@@ -120,4 +118,3 @@ const SwapForm: React.FC = () => {
 };
 
 export default SwapForm;
-
