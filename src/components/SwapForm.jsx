@@ -1,6 +1,4 @@
-
 import React from 'react';
-import { TokenModel } from '../models/TokenModel';
 import { useSwapState } from '../hooks/useSwapState';
 import { useSwapActions } from '../hooks/useSwapActions';
 import SwapInputs from './swap/SwapInputs';
@@ -16,17 +14,17 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 
-const SwapForm: React.FC = () => {
+const SwapForm = () => {
   const { state, updateState, handleAmountChange, switchTokens, handleSlippageChange, handleCheckboxChange } = useSwapState();
   const { isLoadingQuote, isSwapping, isApproving, handleApprove, handleSwap } = useSwapActions(state, updateState);
   const { isConnected, isEligible } = useWalletContext();
   const { toast } = useToast();
 
-  const handleTokenSelect = (key: 'fromToken' | 'toToken', token: TokenModel) => {
+  const handleTokenSelect = (key, token) => {
     updateState({ [key]: token, quote: null, isApproved: false });
   };
 
-  const handleCopyBalance = (balance: string) => {
+  const handleCopyBalance = (balance) => {
     navigator.clipboard.writeText(balance);
     toast({
       description: "Balance copied to clipboard",
