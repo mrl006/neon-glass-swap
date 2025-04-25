@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { useWallet } from '../services/walletService';
@@ -12,7 +11,7 @@ const NavigationBar = () => {
   const web3dToken = getToken('web3d');
 
   return (
-    <nav className="sticky top-0 z-50 py-3 px-4 w-full">
+    <nav className="sticky top-0 z-50 py-5 px-4 w-full">
       {/* Glowing background effect */}
       <div className="absolute inset-0 backdrop-blur-2xl bg-black/30 border-b border-white/5">
         <div className="absolute inset-0 overflow-hidden">
@@ -23,13 +22,13 @@ const NavigationBar = () => {
       </div>
 
       <div className="container mx-auto flex items-center justify-between relative z-10">
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-8">
           <Logo />
           
-          <div className="hidden sm:flex items-center gap-6">
+          <div className="hidden sm:flex items-center gap-8 mt-2">
             <Link
               to="/"
-              className={`group relative overflow-hidden px-4 py-2 transition-all duration-300 ${
+              className={`group relative overflow-hidden px-6 py-3 transition-all duration-300 ${
                 location.pathname === '/' 
                   ? 'text-neon-purple font-semibold' 
                   : 'text-gray-300'
@@ -41,7 +40,7 @@ const NavigationBar = () => {
             </Link>
             <Link
               to="/explorer"
-              className={`group relative overflow-hidden px-4 py-2 transition-all duration-300 ${
+              className={`group relative overflow-hidden px-6 py-3 transition-all duration-300 ${
                 location.pathname === '/explorer' 
                   ? 'text-neon-purple font-semibold' 
                   : 'text-gray-300'
@@ -96,4 +95,3 @@ const NavigationBar = () => {
 };
 
 export default NavigationBar;
-
