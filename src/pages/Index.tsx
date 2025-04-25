@@ -1,6 +1,7 @@
 
 import React from 'react';
-import { ArrowRight } from 'lucide-react';
+import { Cog } from 'lucide-react';
+import NavigationBar from '@/components/NavigationBar';
 import GlassBackground from '@/components/GlassBackground';
 import WalletConnect from '@/components/WalletConnect';
 import SwapForm from '@/components/SwapForm';
@@ -9,48 +10,35 @@ import Footer from '@/components/Footer';
 const Index = () => {
   return (
     <GlassBackground>
-      <div className="container mx-auto px-4 min-h-screen flex flex-col">
-        {/* Header Section */}
-        <header className="py-6 mb-8">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-gradient-to-br from-neon-purple to-neon-blue rounded-lg animate-pulse" />
-              <h1 className="text-2xl font-bold bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
-                Glassless Swap
-              </h1>
-            </div>
-            <div className="flex items-center gap-4">
-              <a 
-                href="https://docs.example.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors"
-              >
-                Documentation
-                <ArrowRight className="w-4 h-4" />
-              </a>
-            </div>
+      <div className="min-h-screen flex flex-col">
+        <NavigationBar />
+        
+        <main className="flex-1 container mx-auto px-4 py-12">
+          <div className="max-w-3xl mx-auto text-center mb-12">
+            <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-neon-purple via-white to-neon-blue bg-clip-text text-transparent">
+              Glassless Token Swap
+            </h1>
+            <p className="text-xl text-gray-400">
+              Experience the Future of DeFi
+            </p>
           </div>
-        </header>
 
-        {/* Main Content */}
-        <main className="flex-1 flex flex-col items-center justify-center gap-6 py-8">
-          <div className="w-full max-w-md space-y-6">
-            <div className="text-center mb-8">
-              <h2 className="text-4xl font-bold mb-3 bg-gradient-to-r from-neon-purple via-white to-neon-blue bg-clip-text text-transparent">
-                Trade Instantly
-              </h2>
-              <p className="text-gray-400">
-                Swap tokens with zero gas fees on BNB Chain
-              </p>
-            </div>
-            
+          <div className="max-w-lg mx-auto space-y-6">
             <WalletConnect />
-            <SwapForm />
+            
+            <div className="glass-panel p-6 rounded-2xl border border-white/10">
+              <div className="flex justify-between items-center mb-6">
+                <h2 className="text-xl font-semibold text-white">Swap Tokens</h2>
+                <button className="p-2 hover:bg-white/5 rounded-lg transition-colors">
+                  <Cog className="w-5 h-5 text-gray-400" />
+                </button>
+              </div>
+              
+              <SwapForm />
+            </div>
           </div>
         </main>
 
-        {/* Footer Section */}
         <Footer />
       </div>
     </GlassBackground>
