@@ -107,12 +107,32 @@ export default {
           '50%': { 
             boxShadow: '0 0 10px #33c3f0, 0 0 20px #33c3f0, 0 0 30px #33c3f0' 
           }
+        },
+        'gradient': {
+          '0%, 100%': {
+            'background-size': '200% 200%',
+            'background-position': 'left center'
+          },
+          '50%': {
+            'background-size': '200% 200%',
+            'background-position': 'right center'
+          }
+        },
+        'pulse-glow': {
+          '0%, 100%': {
+            'box-shadow': '0 0 15px #9333EA, 0 0 30px #9333EA'
+          },
+          '50%': {
+            'box-shadow': '0 0 25px #EC4899, 0 0 50px #EC4899'
+          }
         }
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
-        'glow-pulse': 'glow-pulse 3s infinite'
+        'glow-pulse': 'glow-pulse 3s infinite',
+        'gradient': 'gradient 8s ease infinite',
+        'pulse-glow': 'pulse-glow 2s ease-in-out infinite'
       },
       boxShadow: {
         'neon-purple': '0 0 5px #9b87f5, 0 0 10px #9b87f5',
@@ -123,8 +143,10 @@ export default {
         'gradient-conic': 'conic-gradient(var(--tw-gradient-stops))',
         'gradient-brand': 'linear-gradient(135deg, #9333EA 0%, #EC4899 100%)',
         'neon-glow': 'linear-gradient(90deg, #9333EA 0%, #EC4899 100%)',
-      },
-    },
+        'gradient-sharp': 'linear-gradient(60deg, #9333EA 0%, #EC4899 100%)',
+        'gradient-smooth': 'linear-gradient(90deg, rgba(147,51,234,0.2) 0%, rgba(236,72,153,0.2) 100%)',
+      }
+    }
   },
   plugins: [require("tailwindcss-animate")],
 } satisfies Config;

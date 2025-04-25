@@ -10,31 +10,35 @@ const NavigationBar = () => {
   const location = useLocation();
 
   return (
-    <nav className="sticky top-0 z-50 py-4 px-6 w-full backdrop-blur-xl bg-black/20 border-b border-white/10">
+    <nav className="sticky top-0 z-50 py-3 px-4 w-full backdrop-blur-2xl bg-black/30 border-b border-white/5 shadow-lg">
       <div className="container mx-auto flex items-center justify-between">
-        <div className="flex items-center gap-8">
+        <div className="flex items-center gap-6">
           <Logo />
           
-          <div className="hidden sm:flex items-center gap-6">
+          <div className="hidden sm:flex items-center gap-4">
             <Link
               to="/"
-              className={`text-sm font-medium tracking-wide transition-all hover:text-neon-purple hover:scale-105 ${
+              className={`relative text-sm font-medium tracking-wide transition-all group ${
                 location.pathname === '/' 
                   ? 'text-neon-purple font-semibold' 
                   : 'text-gray-300'
               }`}
             >
-              Swap
+              <span className="relative z-10">Swap</span>
+              <span className={`absolute inset-x-0 -bottom-1 h-0.5 transform scale-x-0 transition-transform duration-200 bg-neon-purple 
+                ${location.pathname === '/' ? 'scale-x-100' : ''} group-hover:scale-x-100`}></span>
             </Link>
             <Link
               to="/explorer"
-              className={`text-sm font-medium tracking-wide transition-all hover:text-neon-purple hover:scale-105 ${
+              className={`relative text-sm font-medium tracking-wide transition-all group ${
                 location.pathname === '/explorer' 
                   ? 'text-neon-purple font-semibold' 
                   : 'text-gray-300'
               }`}
             >
-              Explorer
+              <span className="relative z-10">Explorer</span>
+              <span className={`absolute inset-x-0 -bottom-1 h-0.5 transform scale-x-0 transition-transform duration-200 bg-neon-purple 
+                ${location.pathname === '/explorer' ? 'scale-x-100' : ''} group-hover:scale-x-100`}></span>
             </Link>
           </div>
         </div>
@@ -42,15 +46,17 @@ const NavigationBar = () => {
         <Button 
           onClick={connectWallet} 
           className={`
-            font-medium px-6 transition-all duration-300
+            relative overflow-hidden font-medium px-6 py-2 transition-all duration-300 before:absolute before:inset-0 before:transition-transform before:duration-300
             ${isConnected 
-              ? 'bg-neon-purple/20 text-neon-purple hover:bg-neon-purple/30'
-              : 'bg-neon-purple text-white hover:bg-neon-purple-light hover:scale-105'
+              ? 'bg-neon-purple/10 text-neon-purple hover:bg-neon-purple/20 before:bg-neon-purple/5'
+              : 'bg-gradient-to-r from-neon-purple to-neon-pink text-white hover:from-neon-purple-light hover:to-neon-pink-light before:scale-x-0 hover:before:scale-x-100'
             }
           `}
           disabled={isConnected}
         >
-          {isConnected ? 'Connected' : 'Connect Wallet'}
+          <span className="relative z-10">
+            {isConnected ? 'Connected' : 'Connect Wallet'}
+          </span>
         </Button>
       </div>
     </nav>
