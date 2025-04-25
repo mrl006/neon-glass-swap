@@ -1,9 +1,8 @@
-
 import { useState, useEffect } from 'react';
 import { TokenModel } from '../models/TokenModel';
 import { getSwapQuote, approveToken, executeSwap } from '../services/swapService';
 import { toast } from 'sonner';
-import { SwapState } from '../services/swapService';
+import { SwapState, initialSwapState } from '../services/swapService';
 
 export const useSwapActions = (state: SwapState, updateState: (updates: Partial<SwapState>) => void) => {
   const [isLoadingQuote, setIsLoadingQuote] = useState(false);
