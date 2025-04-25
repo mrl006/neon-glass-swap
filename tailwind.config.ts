@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -53,21 +52,20 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				sidebar: {
-					DEFAULT: 'hsl(var(--sidebar-background))',
-					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
+				brand: {
+					purple: '#9333EA',
+					'purple-light': '#A855F7',
+					'purple-dark': '#7E22CE',
+					pink: '#EC4899',
+					'pink-light': '#F472B6',
+					'pink-dark': '#DB2777',
 				},
-				// Custom colors for the glassmorphism UI
 				neon: {
-					purple: '#9b87f5',
-					'purple-light': '#d6bcfa',
-					'purple-vivid': '#8b5cf6',
+					purple: '#9333EA',
+					'purple-light': '#A855F7',
+					'purple-vivid': '#7E22CE',
+					pink: '#EC4899',
+					'pink-light': '#F472B6',
 					blue: '#1eaedb',
 					'sky-blue': '#33c3f0',
 				},
@@ -120,7 +118,8 @@ export default {
 			backgroundImage: {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
 				'gradient-conic': 'conic-gradient(var(--tw-gradient-stops))',
-				'neon-glow': 'linear-gradient(90deg, #9b87f5 0%, #33c3f0 100%)',
+				'gradient-brand': 'linear-gradient(135deg, #9333EA 0%, #EC4899 100%)',
+				'neon-glow': 'linear-gradient(90deg, #9333EA 0%, #EC4899 100%)',
 			},
 		}
 	},
