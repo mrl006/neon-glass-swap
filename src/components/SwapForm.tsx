@@ -15,6 +15,11 @@ const SwapForm: React.FC = () => {
   const { isConnected, isEligible } = useWallet();
   const { toast } = useToast();
 
+  // Add the missing handleTokenSelect function
+  const handleTokenSelect = (key: 'fromToken' | 'toToken', token: TokenModel) => {
+    updateState({ [key]: token, quote: null, isApproved: false });
+  };
+
   return (
     <div className="glass-panel p-8 w-full max-w-md rounded-2xl border border-white/10 shadow-xl backdrop-blur-xl bg-black/40">
       <h2 className="text-3xl font-bold mb-8 text-center bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
