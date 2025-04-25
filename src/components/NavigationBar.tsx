@@ -1,12 +1,13 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { useWallet } from '../services/walletService';
 import Logo from './Logo';
 import { Link, useLocation } from 'react-router-dom';
 import { getToken } from '../models/TokenModel';
+import { useWalletContext } from '../context/WalletContext';
 
 const NavigationBar = () => {
-  const { connectWallet, isConnected, web3dBalance } = useWallet();
+  const { connectWallet, isConnected, web3dBalance } = useWalletContext();
   const location = useLocation();
   const web3dToken = getToken('web3d');
 

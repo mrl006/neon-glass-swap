@@ -7,7 +7,7 @@ declare global {
   }
 }
 
-interface WalletState {
+export interface WalletState {
   address: string | null;
   chainId: number | null;
   isConnected: boolean;

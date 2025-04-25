@@ -2,10 +2,9 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { SwapState } from '@/services/swapService';
+import { useWalletContext } from '../../context/WalletContext';
 
 interface SwapButtonProps {
-  isConnected: boolean;
-  isEligible: boolean;
   state: SwapState;
   isApproving: boolean;
   isSwapping: boolean;
@@ -14,14 +13,14 @@ interface SwapButtonProps {
 }
 
 const SwapButton: React.FC<SwapButtonProps> = ({
-  isConnected,
-  isEligible,
   state,
   isApproving,
   isSwapping,
   onApprove,
   onSwap
 }) => {
+  const { isConnected, isEligible } = useWalletContext();
+  
   if (!isConnected) {
     return (
       <Button 

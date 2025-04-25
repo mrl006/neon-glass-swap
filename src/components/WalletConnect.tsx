@@ -1,10 +1,10 @@
 
 import React from 'react';
-import { useWallet } from '../services/walletService';
 import { Button } from '@/components/ui/button';
+import { useWalletContext } from '../context/WalletContext';
 
 const WalletConnect: React.FC = () => {
-  const { address, isConnected, web3dBalance, isEligible, isLoading, connectWallet, disconnect } = useWallet();
+  const { address, isConnected, web3dBalance, isEligible, isLoading, connectWallet, disconnect } = useWalletContext();
   
   // Format address for display
   const formatAddress = (address: string | null): string => {
