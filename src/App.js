@@ -58,14 +58,14 @@ const WalletProvider = ({ children }) => {
   };
 
   return (
-    <WalletContext.Provider value={{
-      ...walletState,
-      isLoading,
-      connectWallet,
-      disconnect
-    }}>
-      {children}
-    </WalletContext.Provider>
+    React.createElement(WalletContext.Provider, {
+      value: {
+        ...walletState,
+        isLoading,
+        connectWallet,
+        disconnect
+      }
+    }, children)
   );
 };
 
@@ -80,105 +80,101 @@ const Home = () => {
   });
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="max-w-xl mx-auto glass-panel p-6 rounded-2xl">
-        <div className="flex justify-between items-center mb-6">
-          <h2 className="text-2xl font-bold gradient-text">Swap Tokens</h2>
-          <Button 
-            onClick={isConnected ? disconnect : connectWallet}
-            className="neon-button"
-          >
-            {isConnected ? `Connected (${web3dBalance.toFixed(2)} WEB3D)` : 'Connect Wallet'}
-          </Button>
-        </div>
+    React.createElement("div", { className: "container mx-auto px-4 py-8" },
+      React.createElement("div", { className: "max-w-xl mx-auto glass-panel p-6 rounded-2xl" },
+        React.createElement("div", { className: "flex justify-between items-center mb-6" },
+          React.createElement("h2", { className: "text-2xl font-bold gradient-text" }, "Swap Tokens"),
+          React.createElement(Button, {
+            onClick: isConnected ? disconnect : connectWallet,
+            className: "neon-button"
+          }, isConnected ? `Connected (${web3dBalance.toFixed(2)} WEB3D)` : 'Connect Wallet')
+        ),
 
-        <div className="space-y-6">
-          {/* From Token Input */}
-          <div className="glass-input-container">
-            <input
-              type="text"
-              placeholder="0.0"
-              value={swapState.amount}
-              onChange={(e) => setSwapState(prev => ({ ...prev, amount: e.target.value }))}
-              className="glass-input"
-            />
-            <Button className="token-select-button">
-              <img src={swapState.fromToken.logo} alt={swapState.fromToken.symbol} className="w-6 h-6" />
-              <span>{swapState.fromToken.symbol}</span>
-              <ChevronDown className="w-4 h-4" />
-            </Button>
-          </div>
+        React.createElement("div", { className: "space-y-6" },
+          // From Token Input
+          React.createElement("div", { className: "glass-input-container" },
+            React.createElement("input", {
+              type: "text",
+              placeholder: "0.0",
+              value: swapState.amount,
+              onChange: (e) => setSwapState(prev => ({ ...prev, amount: e.target.value })),
+              className: "glass-input"
+            }),
+            React.createElement(Button, { className: "token-select-button" },
+              React.createElement("img", { src: swapState.fromToken.logo, alt: swapState.fromToken.symbol, className: "w-6 h-6" }),
+              React.createElement("span", null, swapState.fromToken.symbol),
+              React.createElement(ChevronDown, { className: "w-4 h-4" })
+            )
+          ),
 
-          {/* Swap Direction Button */}
-          <div className="flex justify-center">
-            <Button 
-              className="swap-direction-button"
-              onClick={() => setSwapState(prev => ({
+          // Swap Direction Button
+          React.createElement("div", { className: "flex justify-center" },
+            React.createElement(Button, {
+              className: "swap-direction-button",
+              onClick: () => setSwapState(prev => ({
                 ...prev,
                 fromToken: prev.toToken,
                 toToken: prev.fromToken
-              }))}
-            >
-              <ArrowDown className="w-5 h-5" />
-            </Button>
-          </div>
+              }))
+            },
+              React.createElement(ArrowDown, { className: "w-5 h-5" })
+            )
+          ),
 
-          {/* To Token Input */}
-          <div className="glass-input-container">
-            <input
-              type="text"
-              placeholder="0.0"
-              value={swapState.quote || ''}
-              readOnly
-              className="glass-input"
-            />
-            <Button className="token-select-button">
-              <img src={swapState.toToken.logo} alt={swapState.toToken.symbol} className="w-6 h-6" />
-              <span>{swapState.toToken.symbol}</span>
-              <ChevronDown className="w-4 h-4" />
-            </Button>
-          </div>
+          // To Token Input
+          React.createElement("div", { className: "glass-input-container" },
+            React.createElement("input", {
+              type: "text",
+              placeholder: "0.0",
+              value: swapState.quote || '',
+              readOnly: true,
+              className: "glass-input"
+            }),
+            React.createElement(Button, { className: "token-select-button" },
+              React.createElement("img", { src: swapState.toToken.logo, alt: swapState.toToken.symbol, className: "w-6 h-6" }),
+              React.createElement("span", null, swapState.toToken.symbol),
+              React.createElement(ChevronDown, { className: "w-4 h-4" })
+            )
+          ),
 
-          {/* Swap Button */}
-          <Button 
-            className="w-full neon-button"
-            disabled={!isConnected || !isEligible}
-          >
-            {!isConnected ? 'Connect Wallet' : 
-             !isEligible ? 'Need 100 WEB3D to Swap' : 'Swap Now'}
-          </Button>
-        </div>
-      </div>
-    </div>
+          // Swap Button
+          React.createElement(Button, {
+            className: "w-full neon-button",
+            disabled: !isConnected || !isEligible
+          }, !isConnected ? 'Connect Wallet' :
+              !isEligible ? 'Need 100 WEB3D to Swap' : 'Swap Now')
+        )
+      )
+    )
   );
 };
 
 // Not Found Page
 const NotFound = () => (
-  <div className="container mx-auto px-4 py-8 text-center">
-    <h1 className="text-4xl font-bold mb-4">404 - Page Not Found</h1>
-    <Link to="/" className="text-blue-500 hover:text-blue-600">Go Home</Link>
-  </div>
+  React.createElement("div", { className: "container mx-auto px-4 py-8 text-center" },
+    React.createElement("h1", { className: "text-4xl font-bold mb-4" }, "404 - Page Not Found"),
+    React.createElement(Link, { to: "/", className: "text-blue-500 hover:text-blue-600" }, "Go Home")
+  )
 );
 
 // Main App Component
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <WalletProvider>
-      <TooltipProvider>
-        <BrowserRouter>
-          <div className="min-h-screen bg-gradient">
-            <Toaster />
-            <Sonner />
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </div>
-        </BrowserRouter>
-      </TooltipProvider>
-    </WalletProvider>
-  </QueryClientProvider>
+  React.createElement(QueryClientProvider, { client: queryClient },
+    React.createElement(WalletProvider, null,
+      React.createElement(TooltipProvider, null,
+        React.createElement(BrowserRouter, null,
+          React.createElement("div", { className: "min-h-screen bg-gradient" },
+            React.createElement(Toaster, null),
+            React.createElement(Sonner, null),
+            React.createElement(Routes, null,
+              React.createElement(Route, { path: "/", element: React.createElement(Home, null) }),
+              React.createElement(Route, { path: "*", element: React.createElement(NotFound, null) })
+            )
+          )
+        )
+      )
+    )
+  )
 );
 
 export default App;
